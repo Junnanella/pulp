@@ -43,14 +43,14 @@ mark {
   background-color: #222020;
 }
 
-#tags li a {
+/* #tags li a {
   background-color: #222020;
-}
+} */
 
 #contentsList hr.separator {
   border: solid 1px #363636;
 }
 
-img.avatar-border {
-  filter: invert(100%);
-}
+/* img.avatar-border {
+ filter: invert(100%); 
+} */

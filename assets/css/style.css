@@ -4,7 +4,7 @@ body {
   -webkit-text-size-adjust: 100%;
   min-height:100vh;
   margin: 0;
-  padding: 20px;
+  /* padding: 20px; */
   box-sizing:border-box;
   background-color: #EFEFEF;
   color: #707070;
@@ -63,15 +63,15 @@ footer {
 
 /* Top page */
 #profileContainer {
-  min-height: calc(100vh - 100px);
+  min-height: calc(50vh - 50px);
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  margin-top: 2em;
 }
 
 #profile {
   max-width: 600px;
-  /* min-width: 300px; */
 }
 
 nav ul {
@@ -175,7 +175,7 @@ nav li {
   background-color: #dddfdf;
   border-radius: 5px;
   font-size: 14px;
-  /* text-decoration: none; */
+  text-decoration: none;
 }
 
 #contentsList {
@@ -190,8 +190,10 @@ nav li {
 
 /* Page */
 #contentBody {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px 0;
   text-align: left;
 }
+
+
