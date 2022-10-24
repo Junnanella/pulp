@@ -1,10 +1,29 @@
 {{ define "main"}}
-  <h1>{{ .Title }}</h1>
-  {{ partial "header.html" . }}
-  {{ if not .Date.IsZero }}
+  <nav id="navbar">
+    <ul>
+      <li><a class="navLi" href="/">Home</a></li>
+    </ul>
+  </nav>
+  <div class="pageBody">
+    <h1 class="projectTitle">{{ .Title }}</h1>
+  {{ if .Param "repo_link" }}
+  <!-- repo link -->
+  <a class="repoLinks" href="{{ .Params.repo_link }}" target="_blank">{{.Params.repo}}</a>
+  {{ end }}
+  {{ if .Param "deployed_link" }}
+  <!-- deployed link -->
+  <a class="repoLinks" href="{{ .Params.deployed_link }}" target="_blank">{{.Params.deployed}}</a>
+  {{ end }}
+  <br>
   <!-- date -->
+  {{ if not .Date.IsZero }}
   {{ $singlePageDateFormat := .Site.Params.singlePageDateFormat | default "January 2, 2006"}}
   <p class="date">{{ .Date.Format $singlePageDateFormat }}</p>
+  {{ end }}
+  <br>
+  {{ if .Param "featured_image_on_page"}}
+  <!-- featured image -->
+  <img class="featuredImage" src="{{ .Params.featured_image}}" alt="{{ .Params.imageDescription }}">
   {{ end }}
   <!-- tags -->
   {{ if .Param "tags" }}
@@ -13,7 +32,7 @@
       {{ range .Param "tags" }}
         {{ $name := . }}
         {{ with $.Site.GetPage (printf "/tags/%s" ($name | urlize)) }}
-          <li><a href="{{ .Permalink }}">{{ $name }}</a></li>
+          <li><a href="{{ .Permalink }}" style="pointer-events: none">{{ $name }}</a></li>
         {{ end }}
       {{ end }}
     </ul>
@@ -22,6 +41,7 @@
   <!-- content -->
   <div id="contentBody">
     {{ .Content }}
+  </div>
   </div>
   {{ partial "footer.html" . }}
 {{ end }}
