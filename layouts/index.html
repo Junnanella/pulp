@@ -2,13 +2,10 @@
 <html>
   {{- partial "head.html" . -}}
   <body>
-    {{- partial "nav.html" . -}} 
+    <!-- contact me link -->
+    {{- partial "hire_me_nav.html" . -}} 
     <div class="main">
       <div id="profileContainer">
-        <div>
-        <img class="coding_icon" src="/images/icons/coding.png" alt="coding image">
-          {{- partial "programmingLanguages.html"}} 
-        </div>
         <div id="profile">
           <header class="mainPageHeader">
             <!-- avator -->
@@ -18,43 +15,27 @@
             </div>
             <!-- author -->
             <h1 class="author">{{ .Site.Params.Author }}</h1>
+            {{- partial "header_contacts.html" . -}}
           </header>
           <!-- description -->
           <p class="description">
             {{ .Site.Params.description | safeHTML }}
           </p>
+          {{- partial "programmingLanguages.html"}} 
         </div>
       </div>
       <!-- projects -->
       <div class="projectsContainer">
         <a id="projectsHeader"><h2 class="projects projectHeader">Projects</h2></a>
         <div class="projects mainPageContent">
-          {{ range .Site.Pages}}
-            {{ if .Params.featured }}
-              <div class="project">
-                <a class="contentLink" href="{{ .RelPermalink }}">
-                  <h3 class="projectInfo projectTitle">{{ .Title }}</h3>
-                  <img class="featuredImage" src="{{ .Params.featured_image }}" alt="{{ .Params.imageDescription }}">
-                </a>
-              </div>
-            {{ end }}
-          {{ end }}
+            {{- partial "projectList.html" . -}}
         </div>
       </div>
        <!-- additional experience -->
-       <div class="additionalContainer">
+      <div class="additionalContainer">
         <a id="additionalExperienceHeader"><h2 class="projects additionalHeader">Additional Experience</h2></a>
         <div class="additionals mainPageContent">
-          {{ range .Site.Pages}}
-            {{ if .Params.additional}}
-              <div class="additional">
-                <a class="contentLink" href="{{ .RelPermalink }}">
-                  <h3 class="projectInfo projectTitle">{{ .Title }}</h3>
-                  <img class="featuredImage" src="{{ .Params.featured_image }}" alt="{{ .Params.imageDescription }}">
-                </a>
-              </div>
-            {{ end }}
-          {{ end }}
+          {{- partial "additionalExpList.html" . -}}
         </div>
       </div>
       <!-- contact information -->
@@ -62,7 +43,7 @@
       <a id="contactInfo">
         <div class="contactDiv"><h2 class="contactHeader">Contact Information</h2></div>
         <div class="contactDiv">
-          <h4>Reach out for a chat or check out additional content via the links below</h4>
+          <h4 class="contactMessage">Reach out for a chat or check out additional content via the links below</h4>
           <nav>
             <ul class="contactNav">
               {{ range .Site.Menus.main }}
@@ -73,6 +54,7 @@
         </div>
       </a>
      </div>
+     <br class="mainPageContentSpacing">
       {{- partial "footer.html" . -}}
     </div>
   <!-- </div>

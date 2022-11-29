@@ -1,0 +1,30 @@
+{{ range .Site.Pages}}
+{{ if .Params.additional}}
+<a class="contentLink" href="{{ .RelPermalink }}">
+    <div class="row additional">
+        <div class="col-md-6 col-sm-12">
+            <img class="featuredImage" src="{{ .Params.featured_image }}" alt="{{ .Params.imageDescription }}">
+        </div>
+        <div class="col-md-6 col-sm-12 projectInfo projectBlurb">
+            <h3 class="projectInfo projectTitle">{{ .Title }}</h3>
+            <ul>
+                <li class="projectBlurbMarker">
+                    <p class="projectBlurb">Role: {{ .Params.role }}</p>
+                </li>
+                <li class="projectBlurbMarker">
+                    <p class="projectBlurb projectBlurbTechnology">Technology Highlights: {{ .Params.technology }}</p>
+                </li>
+                {{ if .Params.industry }}
+                <li class="projectBlurbMarker">
+                    <p class="projectBlurb">Industry: {{ .Params.industry }}</p>
+                </li>
+                {{ end }}
+                <li class="projectBlurbMarker">
+                    <p class="projectBlurb">Impact: {{ .Params.impact}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</a>
+{{ end }}
+{{ end }}

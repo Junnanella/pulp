@@ -39,21 +39,22 @@ a:active {
 /* Header */
 header .avatar {
   position: relative;
-  height: 100px;
+  height: clamp(200px, 20vw, 300px);
 }
 
 header .avatar img {
   position: absolute;
-  width: 100px;
+  width: clamp(200px, 20vw, 300px);;
   margin: 0 auto;
   left: 0;
   right: 0;
+  border-radius: 50%;
 }
 
-header .avatarMask {
-  clip-path: circle(48px at center);
-  -webkit-clip-path: circle(48px at center);
-}
+/* header .avatarMask {
+  clip-path: circle(150px at center);
+  -webkit-clip-path: circle(150px at center);
+} */
 
 /* Footer */
 footer {
@@ -61,14 +62,13 @@ footer {
   box-sizing:border-box;
 }
 
-/* Top page */
-#profileContainer {
+Top page
+/* #profileContainer {
   min-height: calc(50vh - 50px);
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   margin-top: 2em;
-}
+} */
 
 #profile {
   max-width: 600px;
@@ -159,7 +159,7 @@ nav li {
 
 #tags ul {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 25px auto;
   display: flex;
   padding: 0;
   justify-content: center;

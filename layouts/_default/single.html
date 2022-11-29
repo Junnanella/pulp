@@ -1,20 +1,21 @@
 {{ define "main"}}
   <nav id="navbar">
-    <ul>
+    <ul class="navbar">
       <li><a class="navLi" href="/">Home</a></li>
     </ul>
   </nav>
   <div class="pageBody">
     <h1 class="projectTitle">{{ .Title }}</h1>
+    <div class="repoLinks">
   {{ if .Param "repo_link" }}
   <!-- repo link -->
-  <a class="repoLinks" href="{{ .Params.repo_link }}" target="_blank">{{.Params.repo}}</a>
-  {{ end }}
-  {{ if .Param "deployed_link" }}
-  <!-- deployed link -->
-  <a class="repoLinks" href="{{ .Params.deployed_link }}" target="_blank">{{.Params.deployed}}</a>
-  {{ end }}
-  <br>
+    <a class="repoLink" href="{{ .Params.repo_link }}" target="_blank">{{.Params.repo}}</a>
+    {{ end }}
+    {{ if .Param "deployed_link" }}
+    <!-- deployed link -->
+    <a class="repoLink" href="{{ .Params.deployed_link }}" target="_blank">{{.Params.deployed}}</a>
+    {{ end }}
+  </div>
   <!-- date -->
   {{ if not .Date.IsZero }}
   {{ $singlePageDateFormat := .Site.Params.singlePageDateFormat | default "January 2, 2006"}}
@@ -23,7 +24,7 @@
   <br>
   {{ if .Param "featured_image_on_page"}}
   <!-- featured image -->
-  <img class="featuredImage" src="{{ .Params.featured_image}}" alt="{{ .Params.imageDescription }}">
+    <img class="pageGif" src="{{ .Params.featured_gif }}">   
   {{ end }}
   <!-- tags -->
   {{ if .Param "tags" }}
