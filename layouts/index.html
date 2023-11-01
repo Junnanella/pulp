@@ -10,54 +10,72 @@
           <header class="mainPageHeader">
             <!-- avator -->
             <div class="avatar">
-              <img class="avatarMask" src="/img/{{ .Site.Params.avatar }}" alt="{{ .Site.Params.avatarDescription }}">
-              <img src="/img/avatar-border.svg" class="avatar-border" alt="">
+              <img
+                class="avatarMask"
+                src="/img/{{ .Site.Params.avatar }}"
+                alt="{{ .Site.Params.avatarDescription }}"
+              />
+              <img src="/img/avatar-border.svg" class="avatar-border" alt="" />
             </div>
             <!-- author -->
             <h1 class="author">{{ .Site.Params.Author }}</h1>
             {{- partial "header_contacts.html" . -}}
           </header>
           <!-- description -->
-          <p class="description">
-            {{ .Site.Params.description | safeHTML }}
-          </p>
-          {{- partial "programmingLanguages.html"}} 
+          <p class="description">{{ .Site.Params.description | safeHTML }}</p>
+          {{- partial "programmingLanguages.html"}}
         </div>
       </div>
       <!-- projects -->
       <div class="projectsContainer">
-        <a id="projectsHeader"><h2 class="projects projectHeader">Projects</h2></a>
+        <a id="projectsHeader"
+          ><h2 class="projects projectHeader">Projects</h2></a
+        >
         <div class="projects mainPageContent">
-            {{- partial "projectList.html" . -}}
+          {{- partial "projectList.html" . -}}
         </div>
       </div>
-       <!-- additional experience -->
+      <!-- additional experience -->
       <div class="additionalContainer">
-        <a id="additionalExperienceHeader"><h2 class="projects additionalHeader">Additional Experience</h2></a>
+        <a id="additionalExperienceHeader"
+          ><h2 class="projects additionalHeader">Additional Experience</h2></a
+        >
         <div class="additionals mainPageContent">
           {{- partial "additionalExpList.html" . -}}
         </div>
       </div>
       <!-- contact information -->
-     <div class="contactsContainer">
-      <a id="contactInfo">
-        <div class="contactDiv"><h2 class="contactHeader">Contact Information</h2></div>
-        <div class="contactDiv">
-          <h4 class="contactMessage">Reach out for a chat or check out additional content via the links below</h4>
-          <nav>
-            <ul class="contactNav">
-              {{ range .Site.Menus.main }}
-              <li><a href="{{ .URL }}" aria-label="{{ .Identifier }}" target="_blank">{{ .Pre }}<br>{{ .Name }}</a></li>
-              {{ end }}
-            </ul>
-          </nav>
-        </div>
-      </a>
-     </div>
-     <br class="mainPageContentSpacing">
+      <div class="contactsContainer">
+        <a id="contactInfo">
+          <div class="contactDiv">
+            <h2 class="contactHeader">Contact Information</h2>
+          </div>
+          <div class="contactDiv">
+            <h4 class="contactMessage">
+              Reach out for a chat or check out additional content via the links
+              below
+            </h4>
+            <nav>
+              <ul class="contactNav">
+                {{ range .Site.Menus.main }}
+                <li>
+                  <a
+                    href="{{ .URL }}"
+                    aria-label="{{ .Identifier }}"
+                    target="_blank"
+                    >{{ .Pre }}<br />{{ .Name }}</a
+                  >
+                </li>
+                {{ end }}
+              </ul>
+            </nav>
+          </div>
+        </a>
+      </div>
+      <br class="mainPageContentSpacing" />
       {{- partial "footer.html" . -}}
     </div>
-  <!-- </div>
+    <!-- </div>
     <a href="/partials/credits.html">Credits</a>
   </div> -->
   </body>

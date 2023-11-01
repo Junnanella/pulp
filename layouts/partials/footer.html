@@ -1,8 +1,9 @@
 <footer>
+  <p><a href="{{ with .Site.GetPage "page" "credits.md" }}{{ .RelPermalink }}{{ end }}" target="_blank" rel="noopener noreferrer">icon credits</a></p>
   <p>
-  &copy; {{ .Site.Params.publicationYear }} {{ .Site.Params.Author }}.
-  Powered by <a href="https://gohugo.io/">Hugo</a>
-  <!-- using the <a href="https://github.com/koirand/pulp/">pulp</a> theme. -->
+    &copy; {{ .Site.Params.publicationYear }} {{ .Site.Params.Author }}. Powered
+    by <a href="https://gohugo.io/">Hugo</a>
+    <!-- using the <a href="https://github.com/koirand/pulp/">pulp</a> theme. -->
   </p>
 </footer>
 {{- range .Site.Params.custom_js -}}
